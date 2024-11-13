@@ -1,5 +1,8 @@
 "use client";
+import { useRouter } from 'next/navigation'
+
 export default function Create() {
+  const router = useRouter()
   const onSubmit=(e)=>{
     e.preventDefault();
     const title = e.target.title.value;
@@ -15,7 +18,9 @@ export default function Create() {
     fetch('http://localhost:9999/topics', options)
     .then(res=>res.json())
     .then(result=>{
-      console.log(result)
+      console.log(result);
+      router.push(`/read.${result.id}`);
+      router.refresh();
     })
   }
   return (

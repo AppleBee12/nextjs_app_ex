@@ -28,7 +28,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   /* const [topics, setTopics] = useState([]);
 
- //useEffect는 서버에서 쓸 수 있는 게 아님
+ //useEffect는 서버에서 쓸 수 있는 게 아님, 클라이언트에서 데이터 조회
  useEffect(()=>{
     fetch('http://localhost:9999/topics')
     .then(res=>{
@@ -40,6 +40,7 @@ export default async function RootLayout({ children }) {
   },[])
   */
 
+  //서버형 컴포넌트에서 데이터 조회
   const response = await fetch('http://localhost:9999/topics');
   const topics = await response.json(); //json->object
 

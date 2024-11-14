@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
 
  //useEffect는 서버에서 쓸 수 있는 게 아님, 클라이언트에서 데이터 조회
  useEffect(()=>{
-    fetch('http://localhost:9999/topics')
+    fetch(process.env.NEXT_PUBLIC_API_URL+'topics')
     .then(res=>{
        return res.json();//json->object
     })
@@ -41,7 +41,7 @@ export default async function RootLayout({ children }) {
   */
 
   //서버형 컴포넌트에서 데이터 조회
-  const response = await fetch('http://localhost:9999/topics');
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL+'topics');
   const topics = await response.json(); //json->object
 
   return (
@@ -56,7 +56,9 @@ export default async function RootLayout({ children }) {
         <nav>
           <ol>
             {
-              topics.map(topic=> <li key={topic.id}><Link href={`/read/${topic.id}`}>{topic.title}</Link></li> )
+              topics.map(topic => 
+              <li key={topic.id}>
+                <Link href={`/read/${topic.id}`}>{topic.title}</Link></li> )
 
             }
             {/* <li><Link href="/read/1">html</Link></li>

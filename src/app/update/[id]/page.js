@@ -11,7 +11,7 @@ export default function Update() {
   const [title, setTitle] = useState([]);
   const [body, setBody] = useState([]);
     useEffect(()=>{
-    fetch('http://localhost:9999/topics/'+id)
+    fetch(process.env.NEXT_PUBLIC_API_URL+'topics/'+id)
     .then(res=>{
        return res.json();//json->object
     })
@@ -38,7 +38,7 @@ export default function Update() {
       body:JSON.stringify({title, body})//object->json
       //JSON.stringify = const obj = {name="hong"}
     }
-    fetch('http://localhost:9999/topics/'+id, options)
+    fetch(process.env.NEXT_PUBLIC_API_URL+'topics/'+id, options)
     .then(res=>res.json())//결과를 객체로 변환
     .then(result=>{
       console.log(result);

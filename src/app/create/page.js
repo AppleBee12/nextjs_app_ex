@@ -15,7 +15,7 @@ export default function Create() {
       body:JSON.stringify({title, body})//object->json
       //JSON.stringify = const obj = {name="hong"}
     }
-    fetch('http://localhost:9999/topics', options)
+    fetch(process.env.NEXT_PUBLIC_API_URL+'topics', options)
     .then(res=>res.json())
     .then(result=>{
       console.log(result);

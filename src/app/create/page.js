@@ -16,10 +16,10 @@ export default function Create() {
       //JSON.stringify = const obj = {name="hong"}
     }
     fetch(process.env.NEXT_PUBLIC_API_URL+'topics', options)
-    .then(res=>res.json())
+    .then(res=>res.json())//결과를 객체로 변환
     .then(result=>{
       console.log(result);
-      router.push(`/read.${result.id}`);
+      router.push(`/`);
       router.refresh();
     })
   }

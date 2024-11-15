@@ -1,4 +1,5 @@
-NEXT_PUBLIC_API_URL=http://localhost:9999/
+NEXT_PUBLIC_API_URL=https://patient-bryn-applebees2-c54b923f.koyeb.app/
+# NEXT_PUBLIC_API_URL=http://localhost:9999/
 
 # 가져올때 process.env.API_URL 
 # 서버단에서만 사용이 가능함
